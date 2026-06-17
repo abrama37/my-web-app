@@ -1,13 +1,29 @@
 package com.myapp;
 
+import com.myapp.controller.MealController;
+import com.myapp.db.DatabaseManager;
 import io.javalin.Javalin;
-import io.javalin.http.staticfiles.Location;
+import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class App {
-    public static void main(String[] args) {
-        var app = Javalin.create(config -> {
-            // Tell Javalin to serve files from the 'public' resource folder
-            config.staticFiles.add("/public", Location.CLASSPATH);
+    public static void main(String[] args) throws Exception {
+
+        DatabaseManager.initDatabase();
+
+        MealController controller = new MealController();
+
+        Javalin.create(config -> {
+            config.staticFiles.add("/public");
+            config.routes.apiBuilder(() -> {
+                path("/api/meals", () -> {
+                    get(controller::getAllMeals);
+                    post(controller::addMeal);
+                    get("/random", controller::getRandomMeal);
+                    delete("/{id}", controller::deleteMeal);
+                    patch("/{id}/rating", controller::updateRating);
+                    patch("/{id}/description", controller::updateDescription);
+                });
+            });
         }).start(8080);
     }
 }
