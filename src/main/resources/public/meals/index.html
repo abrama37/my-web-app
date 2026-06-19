@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Picker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+	<a href="../index.html" style="display:inline-block; margin-bottom:16px; color:#ff6b35">← მთავარი</a>
+        <h1>🍽️ Meal Picker</h1>
+
+        <!-- Random Meal -->
+        <section class="card" id="random-section">
+            <h2>Can't decide what to eat?</h2>
+            <button id="random-btn">🎲 Pick Random Meal</button>
+            <div id="random-result" class="hidden">
+                <h3 id="meal-name"></h3>
+                <p id="meal-category"></p>
+                <p id="meal-description"></p>
+                <p id="meal-rating"></p>
+            </div>
+        </section>
+
+        <!-- Add Meal -->
+        <section class="card">
+            <h2>➕ Add New Meal</h2>
+            <div class="form-group">
+                <input type="text" id="input-name" placeholder="Meal name *" />
+                <select id="input-category">
+                    <option value="">-- Category --</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="snack">Snack</option>
+                </select>
+                <input type="text" id="input-description" placeholder="Description" />
+                <button id="add-btn">Add Meal</button>
+            </div>
+            <p id="add-msg"></p>
+        </section>
+
+        <!-- All Meals -->
+        <section class="card">
+            <h2>📋 All Meals</h2>
+            <div id="meals-list"></div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

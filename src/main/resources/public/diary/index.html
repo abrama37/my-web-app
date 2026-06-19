@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>დღიური</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+            gap: 20px;
+        }
+        .placeholder .big-icon {
+            font-size: 4rem;
+        }
+        .placeholder h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--text);
+        }
+        .placeholder p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            letter-spacing: 0.04em;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 32px auto 0;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.06em;
+            border-bottom: 1px solid var(--accent-dim);
+            padding-bottom: 2px;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 0.7; }
+    </style>
+</head>
+<body>
+
+    <div class="placeholder">
+        <span class="big-icon">🚧</span>
+        <h2>მალე · Soon</h2>
+
+        <!-- CHANGE THESE TWO LINES per section -->
+        <p>ეს გვერდი ჯერ არ არის მზად</p>
+        <p style="font-size:0.8rem">დღიური</p>
+        <!-- ^^^^ change the section name above ^^^^ -->
+
+        <a class="back-link" href="../index.html">← მთავარი</a>
+    </div>
+
+</body>
+</html>
