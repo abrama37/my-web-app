@@ -4,3 +4,4 @@ target/
 .vscode/
 *.db
 *.sqlite
+diary-data/

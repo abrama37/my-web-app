@@ -1,5 +1,6 @@
 package com.myapp;
 
+import com.myapp.controller.DiaryController;
 import com.myapp.controller.MealController;
 import com.myapp.db.DatabaseManager;
 import io.javalin.Javalin;
@@ -10,6 +11,7 @@ public class App {
 
         DatabaseManager.initDatabase();
 
+	DiaryController diaryController = new DiaryController();
         MealController controller = new MealController();
 
         Javalin.create(config -> {
@@ -23,7 +25,14 @@ public class App {
                     patch("/{id}/rating", controller::updateRating);
                     patch("/{id}/description", controller::updateDescription);
                 });
+
+		path("/api/diary", () -> {
+            	    get("/{year}/months", diaryController::getMonths);
+           	    get("/{year}/{month}/days", diaryController::getDays);
+            	    get("/{year}/{month}/{day}", diaryController::getEntry);
+        	});
             });
+
         }).start(8080);
     }
 }
